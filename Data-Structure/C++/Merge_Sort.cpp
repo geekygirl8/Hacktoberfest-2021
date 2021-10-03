@@ -1,15 +1,13 @@
 #include <iostream>
- using namespace std;
+using namespace std;
  
 void Merge(int *a, int low, int high, int mid)
 {
-	// We have low to mid and mid+1 to high already sorted.
 	int i, j, k, temp[high-low+1];
 	i = low;
 	k = 0;
 	j = mid + 1;
  
-	// Merging the two parts into temp[].
 	while (i <= mid && j <= high)
 	{
 		if (a[i] < a[j])
@@ -26,7 +24,6 @@ void Merge(int *a, int low, int high, int mid)
 		}
 	}
  
-	// Insert all the remaining values from i to mid into temp[].
 	while (i <= mid)
 	{
 		temp[k] = a[i];
@@ -34,7 +31,6 @@ void Merge(int *a, int low, int high, int mid)
 		i++;
 	}
  
-	// Insert all the remaining values from j to high into temp[].
 	while (j <= high)
 	{
 		temp[k] = a[j];
@@ -42,15 +38,12 @@ void Merge(int *a, int low, int high, int mid)
 		j++;
 	}
  
- 
-	// Assign sorted data stored in temp[] to a[].
 	for (i = low; i <= high; i++)
 	{
 		a[i] = temp[i-low];
 	}
 }
  
-// A function to divide array in two parts.
 void MergeSort(int *a, int low, int high)
 {
 	int mid;
@@ -65,7 +58,7 @@ void MergeSort(int *a, int low, int high)
 		Merge(a, low, high, mid);
 	}
 }
-  // Main function for user input
+
 int main()
 {
 	int n, i;
